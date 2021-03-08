@@ -28,3 +28,16 @@ func CreatePemChain(intermedateCAs []*x509.Certificate, cert []byte) ([]byte, er
 	}
 	return buf.Bytes(), nil
 }
+
+func CreatePem(cert []byte) ([]byte, error) {
+	buf := bytes.NewBuffer(make([]byte, 0, 2048))
+
+	// encode cert
+	err := pem.Encode(buf, &pem.Block{
+		Type: "CERTIFICATE", Bytes: cert,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}

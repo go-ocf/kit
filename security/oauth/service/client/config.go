@@ -8,12 +8,12 @@ import (
 )
 
 type Config struct {
-	ClientID       string        `yaml:"clientID" json:"clientID"`
-	ClientSecret   string        `yaml:"clientSecret" json:"clientSecret"`
-	Scopes         []string      `yaml:"scopes" json:"scopes"`
-	TokenURL       string        `yaml:"tokenURL" json:"tokenURL"`
-	Audience       string        `yaml:"audience" json:"audience"`
-	RequestTimeout time.Duration `yaml:"timeout" json:"timeout" default:"10s"`
+	ClientID       string        `yaml:"clientID" json:"clientID" envconfig:"CLIENT_ID"`
+	ClientSecret   string        `yaml:"clientSecret" json:"clientSecret" envconfig:"CLIENT_SECRET"`
+	Scopes         []string      `yaml:"scopes" json:"scopes" envconfig:"SCOPES"`
+	TokenURL       string        `yaml:"tokenURL" json:"tokenURL" envconfig:"TOKEN_URL"`
+	Audience       string        `yaml:"audience" json:"audience" envconfig:"AUDIENCE"`
+	RequestTimeout time.Duration `yaml:"timeout" json:"timeout" envconfig:"TIMEOUT" default:"10s"`
 }
 
 // ToClientCrendtials converts to clientcredentials.Config

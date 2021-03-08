@@ -9,10 +9,10 @@ import (
 
 // Config provides configuration of a file based Server Certificate manager
 type Config struct {
-	CAFile          string `yaml:"caFile" json:"caFile" description:"file path to the root certificate in PEM format"`
-	KeyFile         string `yaml:"keyFile" json:"keyFile" description:"file name of private key in PEM format"`
-	CertFile        string `yaml:"certFile" json:"certFile" description:"file name of certificate in PEM format"`
-	UseSystemCAPool bool   `yaml:"useSystemCAPool" json:"useSystemCAPool" description:"use system certification pool"`
+	CAFile          string `yaml:"caFile" json:"caFile" envconfig:"CA_FILE" description:"file path to the root certificate in PEM format"`
+	KeyFile         string `yaml:"keyFile" json:"keyFile" envconfig:"KEY_FILE" description:"file name of private key in PEM format"`
+	CertFile        string `yaml:"certFile" json:"certFile" envconfig:"CERT_FILE" description:"file name of certificate in PEM format"`
+	UseSystemCAPool bool   `yaml:"useSystemCAPool" json:"useSystemCAPool" envconfig:"USE_SYSTEM_POOL" description:"use system certification pool"`
 }
 
 // CertManager holds certificates from filesystem watched for changes
