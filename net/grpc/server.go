@@ -18,8 +18,8 @@ type Server struct {
 
 // Config holds service's settings.
 type Config struct {
-	Addr          string           `yaml:"address" json:"address" default:"0.0.0.0:9100"`
-	TLSConfig     server.Config    `yaml:"tls" json:"tls"`
+	Addr          string           `yaml:"address" json:"address" envconfig:"ADDRESS" default:"0.0.0.0:9100"`
+	TLSConfig     server.Config    `yaml:"tls" json:"tls" envconfig:"TLS"`
 }
 
 // NewServer instantiates a gRPC server.
