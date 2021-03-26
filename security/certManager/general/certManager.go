@@ -167,8 +167,8 @@ func (a *CertManager) loadCerts() error {
 		return nil
 	}
 	return fmt.Errorf("cannot load certificate from CertFile='%v', KeyFile='%v'", a.config.CertFile, a.config.KeyFile)
-
 }
+
 func (a *CertManager) loadCAs() error {
 	var cas []*x509.Certificate
 	if a.config.CAFile != "" {
