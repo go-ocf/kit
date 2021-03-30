@@ -164,9 +164,8 @@ func (a *CertManager) loadCerts() error {
 			return fmt.Errorf("cannot load certificate pair: %w", err)
 		}
 		a.setTLSKeyPair(cert)
-		return nil
 	}
-	return fmt.Errorf("cannot load certificate from CertFile='%v', KeyFile='%v'", a.config.CertFile, a.config.KeyFile)
+	return nil
 }
 
 func (a *CertManager) loadCAs() error {
